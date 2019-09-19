@@ -5,7 +5,7 @@ import { recordClickData } from '../../util/util';
 import '../../styles/standard-styles.scss';
 import '../../styles/RnR-styles.scss';
 
-const apiurl = process.env.REACT_APP_APIURL || '123.456.789.1011';
+// const apiurl = process.env.REACT_APP_APIURL || '123.456.789.1011';
 
 class LowerBar extends React.Component {
   constructor(props) {
@@ -24,7 +24,7 @@ class LowerBar extends React.Component {
       // eslint-disable-next-line camelcase
       const { review_id } = review;
       // eslint-disable-next-line camelcase
-      return fetch(`${apiurl}/reviews/helpful/${review_id}`, {
+      return fetch(`http://localhost:3000/reviews/helpful/${review_id}`, {
         method: 'PUT',
       })
         .then(() => this.setState(() => ({ hasVotedHelpfulness: true })));
@@ -40,7 +40,7 @@ class LowerBar extends React.Component {
       // eslint-disable-next-line camelcase
       const { review_id } = review;
       // eslint-disable-next-line camelcase
-      return fetch(`${apiurl}/reviews/report/${review_id}`, {
+      return fetch(`http://localhost:3000/reviews/report/${review_id}`, {
         method: 'PUT',
       })
         .then(() => this.setState(() => ({ hasReported: true })))

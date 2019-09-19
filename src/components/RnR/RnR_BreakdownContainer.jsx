@@ -28,7 +28,8 @@ export class BreakdownContainer extends Component {
   fetchMetaData() {
     const { productData, dispatch } = this.props;
     const { id } = productData;
-    fetch(`${apiUrl}/reviews/${id}/meta`)
+    fetch(`http://localhost:3000/reviews/${id}/meta`)
+    // fetch(`${apirul}/reviews/${id}/meta`)
       .then((response) => response.json())
       .then((data) => dispatch(getMetaData(data)))
       .catch(() => dispatch(getMetaData({}))); // place holder error handling

@@ -34,12 +34,14 @@ class Sort extends Component {
   getAllReviews() {
     const currentView = document.getElementById('sort-selector').value;
     const { productId, dispatch } = this.props;
-    fetch(`${apiurl}/reviews/${productId}/list`)
+    // fetch(`${apiurl}/reviews/${productId}/list`)
+    fetch(`http://localhost:3000/reviews/${productId}/list`)
       .then((response) => {
         if (response.status !== 200) { console.log('problem'); }
         return response.json();
       })
       .then((data) => {
+        console.log(data)
         if (currentView === 'helpfulness') {
           return data.results.sort((a, b) => ((a.helpfulness < b.helpfulness) ? 1 : -1));
         } if (currentView === 'date') {

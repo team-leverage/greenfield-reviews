@@ -1,6 +1,7 @@
 const getMetaData = (state = {}, action) => {
   switch (action.type) {
     case 'GET_METADATA':
+      console.log(action.data);
       return action.data;
     default:
       return state;
